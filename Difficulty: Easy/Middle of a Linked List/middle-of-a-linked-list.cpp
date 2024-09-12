@@ -45,10 +45,10 @@ class Solution {
         // code here
         Node* slow = head;
         Node* fast = head;
-        while(fast->next){
+        while(fast && fast->next){
             slow = slow->next;
-            if(fast->next->next) fast = fast->next->next;
-            else break; 
+            fast = fast->next->next;
+            // else break; 
         }
         return slow->data;
     }
