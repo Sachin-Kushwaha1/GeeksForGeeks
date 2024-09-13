@@ -6,21 +6,22 @@ using namespace std;
 // } Driver Code Ends
 // Function to find square root
 // x: element to find square root
+#define ll long long int
 class Solution {
   public:
-  #define lli long long int
     long long int floorSqrt(long long int n) {
         // Your code goes here
-        lli l=1,r=n;
-        lli mid = l + (r-l)/2;
-        while(l<=r)
-        {
-            mid = l + (r-l)/2;
-            if(mid*mid == n) return mid;
-            else if(mid*mid > n) r=mid-1;
-            else    l = mid+1;
+        ll i = 1, j = n/2;
+        ll mid = i + (j-i)/2;
+        while(i<=j){
+            mid = i + (j-i)/2;
+            ll x = mid*mid;
+            ll y = (mid+1)*(mid+1);
+            if( x == n || ( x<n && y>n )) return mid;
+            if(x>n) j = mid-1;
+            else i = mid+1;
         }
-        return l-1;
+        return mid;
     }
 };
 
