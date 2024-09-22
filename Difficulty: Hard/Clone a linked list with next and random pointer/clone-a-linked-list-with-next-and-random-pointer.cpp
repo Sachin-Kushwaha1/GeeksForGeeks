@@ -63,6 +63,7 @@ bool validation(Node *head, Node *res) {
 
 
 // } Driver Code Ends
+
 /* Link list Node
 struct Node {
     int data;
@@ -159,7 +160,10 @@ int main() {
 
         Solution ob;
         Node *res = ob.copyList(head);
-
+        if (res == head) {
+            cout << "false" << endl;
+            continue;
+        }
         if (validation(head, res)) {
             cout << "true" << endl;
         } else {
